@@ -1,0 +1,151 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             text, CODE, READONLY
+    2 00000000                 EXPORT           testbench
+    3 00000000                 IMPORT           inpoint
+    4 00000000                 IMPORT           outpoint
+    5 00000000                 IMPORT           alength
+    6 00000000                 IMPORT           kstate
+    7 00000000                 IMPORT           kal
+    8 00000000         
+    9 00000000         testbench
+   10 00000000         
+   11 00000000         ;KALMAN FILTER TESTBENCH
+   12 00000000         
+   13 00000000         ;load memory areas into a ppopriate registers
+   14 00000000 4817            LDR              R0, =inpoint
+   15 00000002 4918            LDR              R1, =outpoint
+   16 00000004 4A18            LDR              R2, =alength
+   17 00000006 4B19            LDR              R3, =kstate
+   18 00000008         
+   19 00000008 ED9F 2A19       VLDR.f32         S4, =0.1
+   20 0000000C EDDF 2A19       VLDR.f32         S5, =2.2
+   21 00000010 ED9F 3A19       VLDR.f32         S6, =-0.1
+   22 00000014 EEF0 3A0C       VLDR.f32         S7, =3.5
+   23 00000018 EEB1 4A00       VLDR.f32         S8, =4.0
+   24 0000001C EDDF 4A17       VLDR.f32         S9, =4.1
+   25 00000020 ED9F 5A17       VLDR.f32         S10, =9.9
+   26 00000024 EDDF 5A17       VLDR.f32         S11, =0.0
+   27 00000028 ED9F 6A16       VLDR.f32         S12, =0.0
+   28 0000002C EDDF 6A16       VLDR.f32         S13, =2.3
+   29 00000030 EC80 2A0A       VSTM             R0, {S4-S13}
+   30 00000034         
+   31 00000034 F04F 040A       MOV              R4, #10
+   32 00000038 6014            STR              R4, [R2]
+   33 0000003A 6812            LDR              R2, [R2]
+   34 0000003C         
+   35 0000003C ED9F 2A13       VLDR.f32         S4, =0.80
+   36 00000040 EDDF 2A13       VLDR.f32         S5, =1.20
+   37 00000044 ED9F 3A0A       VLDR.f32         S6, =0.10
+   38 00000048 EDDF 3A09       VLDR.f32         S7, =0.10
+   39 0000004C ED9F 4A0D       VLDR.f32         S8, =0.00
+   40 00000050 EDDF 4A0C       VLDR.f32         S9, =0.0
+   41 00000054 ED9F 5A06       VLDR.f32         S10, =0.10
+   42 00000058 EC83 2A07       VSTM             R3, {S4-S10}
+   43 0000005C         
+   44 0000005C         ;load program and execute 
+   45 0000005C 4C0D            LDR              R4, =kal
+   46 0000005E 4720            BX               R4
+   47 00000060                 END
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              3DCCCCCD 
+              400CCCCD 
+              BDCCCCCD 
+              40833333 
+              411E6666 
+              00000000 
+              40133333 
+              3F4CCCCD 
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+              3F99999A 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\kalman_testbench_asm.d -o.\objects\kalman_testbench_a
+sm.o -IF:\Lab1_STM32F4Cube_Base_project\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0
+.0-Beta4\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\C
+MSIS\Device\ST\STM32F4xx\Include --predefine="__EVAL SETA 1" --predefine="__UVI
+SION_VERSION SETA 515" --predefine="_RTE_ SETA 1" --predefine="STM32F407xx SETA
+ 1" --list=.\listings\kalman_testbench_asm.lst kalman_testbench_asm.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+testbench 00000000
+
+Symbol: testbench
+   Definitions
+      At line 9 in file kalman_testbench_asm.s
+   Uses
+      At line 2 in file kalman_testbench_asm.s
+Comment: testbench used once
+text 00000000
+
+Symbol: text
+   Definitions
+      At line 1 in file kalman_testbench_asm.s
+   Uses
+      None
+Comment: text unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+alength 00000000
+
+Symbol: alength
+   Definitions
+      At line 5 in file kalman_testbench_asm.s
+   Uses
+      At line 16 in file kalman_testbench_asm.s
+Comment: alength used once
+inpoint 00000000
+
+Symbol: inpoint
+   Definitions
+      At line 3 in file kalman_testbench_asm.s
+   Uses
+      At line 14 in file kalman_testbench_asm.s
+Comment: inpoint used once
+kal 00000000
+
+Symbol: kal
+   Definitions
+      At line 7 in file kalman_testbench_asm.s
+   Uses
+      At line 45 in file kalman_testbench_asm.s
+Comment: kal used once
+kstate 00000000
+
+Symbol: kstate
+   Definitions
+      At line 6 in file kalman_testbench_asm.s
+   Uses
+      At line 17 in file kalman_testbench_asm.s
+Comment: kstate used once
+outpoint 00000000
+
+Symbol: outpoint
+   Definitions
+      At line 4 in file kalman_testbench_asm.s
+   Uses
+      At line 15 in file kalman_testbench_asm.s
+Comment: outpoint used once
+5 symbols
+344 symbols in table

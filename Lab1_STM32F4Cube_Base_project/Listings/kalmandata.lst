@@ -1,0 +1,102 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             data, DATA, READWRITE
+    2 00000000                 EXPORT           inpoint
+    3 00000000                 EXPORT           outpoint
+    4 00000000                 EXPORT           alength
+    5 00000000                 EXPORT           kstate
+    6 00000000         
+    7 00000000 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 inpoint DCFS             0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0
+.0, 0.0, 0.0, 0.0
+    8 00000028 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 outpoint
+                               DCFS             0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0
+.0, 0.0, 0.0, 0.0
+    9 00000050 00      alength DCB              0
+   10 00000051 00 00 00 
+              3F4CCCCD 
+              3F99999A 
+              3DCCCCCD 
+              3DCCCCCD 
+              00000000 
+              3DCCCCCD 
+              00000000 kstate  DCFS             0.80, 1.20, 0.10, 0.10, 0.00, 0
+.10, 0.00
+   11 00000070         
+   12 00000070                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\kalmandata.d -o.\objects\kalmandata.o -IF:\Lab1_STM32
+F4Cube_Base_project\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Inclu
+de -IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32
+F4xx\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 51
+5" --predefine="_RTE_ SETA 1" --predefine="STM32F407xx SETA 1" --list=.\listing
+s\kalmandata.lst kalmanData.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+alength 00000050
+
+Symbol: alength
+   Definitions
+      At line 9 in file kalmanData.s
+   Uses
+      At line 4 in file kalmanData.s
+Comment: alength used once
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 1 in file kalmanData.s
+   Uses
+      None
+Comment: data unused
+inpoint 00000000
+
+Symbol: inpoint
+   Definitions
+      At line 7 in file kalmanData.s
+   Uses
+      At line 2 in file kalmanData.s
+Comment: inpoint used once
+kstate 00000054
+
+Symbol: kstate
+   Definitions
+      At line 10 in file kalmanData.s
+   Uses
+      At line 5 in file kalmanData.s
+Comment: kstate used once
+outpoint 00000028
+
+Symbol: outpoint
+   Definitions
+      At line 8 in file kalmanData.s
+   Uses
+      At line 3 in file kalmanData.s
+Comment: outpoint used once
+5 symbols
+339 symbols in table
